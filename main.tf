@@ -12,7 +12,7 @@ resource "aws_instance" "app_server" {
   instance_type          = "t2.micro"
   key_name               = aws_key_pair.key.key_name
   associate_public_ip_address = true
-  spot_price = "0.01"
+  
 
   user_data = <<-EOF
   #!/bin/bash
