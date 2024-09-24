@@ -1,0 +1,17 @@
+version: 2
+updates:
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    # Workflow files stored in the default location of `.github/workflows`
+    directory: "/"
+    schedule:
+      interval: "daily"
+    registries:
+      - github
+registries:
+  github:
+    type: git
+    url: https://github.com
+    username: x-access-token # username doesn't matter
+    password: ${{ secrets.GHEC_TOKEN }} # dependabot secret

@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: java-app-argocd
+  namespace: java-app-argocd 
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Khushbo08/java_app_argocd.git
+    path: manifests
+    targetRevision: main
+  destination:
+    server: https://F272B55355AF8DF247F4249FDA86B9FC.gr7.us-east-1.eks.amazonaws.com
+    namespace: java-app-argocd 
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
