@@ -2,10 +2,10 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_key_pair" "key" {
-  key_name   = "my-key"
-  public_key = file("~/.ssh/id_rsa.pub")
-}
+# resource "aws_key_pair" "key" {
+#   key_name   = "my-key"
+#   public_key = file("~/.ssh/id_rsa.pub")
+# }
 
 resource "aws_instance" "app_server" {
   ami                    = "ami-0e86e20dae9224db8"  
