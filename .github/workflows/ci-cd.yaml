@@ -82,4 +82,5 @@ jobs:
 
     # Output the EC2 instance public IP for the deployed app
     - name: Show EC2 Public IP
-      run: echo "Application deployed at IP: $(terraform output public_ip)"
+      run: echo "Application deployed at IP: ${{ steps.terraform.outputs.public_ip }}"
+
