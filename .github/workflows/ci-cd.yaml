@@ -26,7 +26,7 @@ jobs:
 
     # Build and package the project into a JAR file
     - name: Build project and package jar
-      run: mvn package  
+      run: mvn clean package  
 
     # Log in to Docker Hub using secrets
     - name: Login to Docker Hub
