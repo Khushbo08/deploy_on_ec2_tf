@@ -10,7 +10,7 @@ provider "aws" {
 resource "aws_instance" "app_server" {
   ami                    = "ami-0e86e20dae9224db8"  
   instance_type          = "t2.micro"
-  key_name               = aws_key_pair.key.key_name
+#   key_name               = aws_key_pair.key.key_name
   associate_public_ip_address = true
   
 
@@ -22,9 +22,9 @@ resource "aws_instance" "app_server" {
   sudo apt install -y docker.io
   sudo systemctl start docker
   sudo systemctl enable docker
-  docker login -u "${dockerhub_username}" -p "${dockerhub_token}"
-  docker pull ${dockerhub_username}/application_img_argocd:latest
-  docker run -d -p 8080:8080 ${dockerhub_username}/application_img_argocd:latest
+  docker login -u "${DOCKERHUB_USERNAME}" -p "${DOCKERHUB_TOKEN}"  
+  docker pull ${DOCKERHUB_USERNAME}/application_img_argocd:latest  
+  docker run -d -p 8080:8080 ${DOCKERHUB_USERNAME}/application_img_argocd:latest  
 EOF
 
 
