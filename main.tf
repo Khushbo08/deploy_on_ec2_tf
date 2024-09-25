@@ -22,7 +22,7 @@ resource "aws_instance" "app_server" {
   sudo apt install -y docker.io
   sudo systemctl start docker
   sudo systemctl enable docker
-  docker login -u "${DOCKERHUB_USERNAME}" -p "${DOCKERHUB_TOKEN}"  
+  sudo docker login -u ${var.DOCKERHUB_USERNAME} -p ${var.DOCKERHUB_TOKEN}  
   docker pull ${DOCKERHUB_USERNAME}/application_img_argocd:latest  
   docker run -d -p 8080:8080 ${DOCKERHUB_USERNAME}/application_img_argocd:latest  
 EOF
