@@ -22,10 +22,11 @@ resource "aws_instance" "app_server" {
   sudo apt install -y docker.io
   sudo systemctl start docker
   sudo systemctl enable docker
-  sudo docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_TOKEN}  
-  docker pull ${DOCKERHUB_USERNAME}/application_img_argocd:latest  
-  docker run -d -p 8080:8080 ${DOCKERHUB_USERNAME}/application_img_argocd:latest  
+  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 920726643262.dkr.ecr.us-east-1.amazonaws.com/deploy_on_ec2_tf
+  docker pull 920726643262.dkr.ecr.us-east-1.amazonaws.com/deploy_on_ec2_tf:latest
+  docker run -d -p 8080:8080 920726643262.dkr.ecr.us-east-1.amazonaws.com/deploy_on_ec2_tf:latest
 EOF
+
 
 
   tags = {
