@@ -40,7 +40,7 @@ jobs:
     - name: Build Docker Image
       run: |
           docker build -t employee:${{ github.sha }} .
-          docker tag employee:${{ github.sha }} ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPO_NAME }}:${{ github.sha }}
+          docker tag employee:${{ github.sha }} 920726643262.dkr.ecr.us-east-1.amazonaws.com/deploy_on_ec2_tf:${{ github.sha }}
           
           
     - name: push docker image
