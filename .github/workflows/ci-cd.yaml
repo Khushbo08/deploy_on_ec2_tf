@@ -45,7 +45,7 @@ jobs:
           
     - name: push docker image
       run:  |
-       docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPO_NAME }}:${{ github.sha }}
+       docker push 920726643262.dkr.ecr.us-east-1.amazonaws.com/deploy_on_ec2_tf:${{ github.sha }}
 
   # Job to deploy the Java app on EC2
   deploy:
